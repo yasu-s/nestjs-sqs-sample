@@ -3,6 +3,6 @@ import { SqsConsumerModule } from './sqs-consumer.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(SqsConsumerModule);
-  await app.listen(3000);
+  await app.listen(3001);
 }
 bootstrap();
