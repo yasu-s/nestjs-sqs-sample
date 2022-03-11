@@ -47,10 +47,10 @@ jobs:
     - name: test
       run:  yarn test:ci
     - uses: actions/upload-artifact@v2
-        if: success() || failure()
-        with:
-          name: test-results
-          path: reports/jest-junit.xml
+      if: success() || failure()
+      with:
+        name: test-results
+        path: reports/jest-junit.xml
     - uses: dorny/test-reporter@v1
       with:
         artifact: test-results
