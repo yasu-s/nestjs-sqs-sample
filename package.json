@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.2.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@ssut/nestjs-sqs": "^1.2.0",
@@ -76,7 +77,8 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^@app/sqs-commons(|/.*)$": "<rootDir>/libs/sqs-commons/src/$1"
+      "^@app/sqs-commons(|/.*)$": "<rootDir>/libs/sqs-commons/src/$1",
+      "^@app/commons(|/.*)$": "<rootDir>/libs/commons/src/$1"
     }
   }
 }

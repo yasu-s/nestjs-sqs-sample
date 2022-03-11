@@ -9,6 +9,11 @@
       "command": "yarn"
     },
     {
+      "label": "yarn-build",
+      "type": "shell",
+      "command": "yarn build"
+    },
+    {
       "label": "yarn-start-produce",
       "type": "shell",
       "command": "yarn start:producer:dev",

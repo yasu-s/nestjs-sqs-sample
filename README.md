@@ -7,6 +7,7 @@
 
 ## 動作環境
 
+- Mac OS
 - Node.js - 16.x
 - yarn - 1.22.x
 - Docker Desktop - 4.2.0以上
@@ -28,6 +29,9 @@ aws sqs create-queue --endpoint-url http://localhost:4566 --queue-name sample-qu
 
 # Node.jsパッケージインストール
 yarn
+
+# .envファイル作成。必要に応じて.envの内容は変更してください
+cp .env.sample .env
 
 # SQS受信側起動
 yarn start:consumer
