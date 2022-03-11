@@ -1,19 +1,20 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { AppService } from './app.service';
+import { SqsService } from '@ssut/nestjs-sqs';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly sqsService: SqsService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
-  @Get('hoge')
-  async getHoge(@Query('message') message: string) {
+  async sendQueue(@Query('message') message: string) {
     const msg = message || 'hoge';
-    await this.appService.sendQueue(msg);
+    const date = (+new Date()).toString();
+
+    await this.sqsService.send('hoge', {
+      id: date,
+      body: { message: msg, date: date },
+    });
+
     return 'ok';
   }
 }

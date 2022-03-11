@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { SqsModule } from '@ssut/nestjs-sqs';
 import { MessageHandler } from './message.handler';
-import { SqsConsumerController } from './sqs-consumer.controller';
-import { SqsConsumerService } from './sqs-consumer.service';
 
 @Module({
   imports: [
@@ -17,7 +15,7 @@ import { SqsConsumerService } from './sqs-consumer.service';
       producers: [],
     }),
   ],
-  controllers: [SqsConsumerController],
-  providers: [SqsConsumerService, MessageHandler],
+  controllers: [],
+  providers: [MessageHandler],
 })
 export class SqsConsumerModule {}
