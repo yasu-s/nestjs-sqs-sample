@@ -76,7 +76,8 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^@app/sqs-commons(|/.*)$": "<rootDir>/libs/sqs-commons/src/$1"
+      "^@app/sqs-commons(|/.*)$": "<rootDir>/libs/sqs-commons/src/$1",
+      "^@app/commons(|/.*)$": "<rootDir>/libs/commons/src/$1"
     }
   }
 }

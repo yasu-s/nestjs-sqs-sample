@@ -1,5 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { SqsService } from '@ssut/nestjs-sqs';
+import { Message } from '@app/commons';
 
 @Controller()
 export class SqsProducerController {
@@ -7,12 +8,14 @@ export class SqsProducerController {
 
   @Get()
   async sendQueue(@Query('message') message: string) {
-    const msg = message || 'hoge';
-    const date = (+new Date()).toString();
+    const data: Message = {
+      date: (+new Date()).toString(),
+      message: message || 'hoge',
+    };
 
     await this.sqsService.send('test-queue', {
-      id: date,
-      body: { message: msg, date: date },
+      id: data.date,
+      body: data,
     });
 
     return 'ok';
