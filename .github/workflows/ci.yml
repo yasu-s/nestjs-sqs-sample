@@ -50,5 +50,5 @@ jobs:
       with:
         artifact: test-results
         name: JEST Tests
-        path: 'reports/*.xml'
+        path: '*.xml'
         reporter: jest-junit
