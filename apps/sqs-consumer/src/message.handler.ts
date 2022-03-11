@@ -4,7 +4,7 @@ import * as AWS from 'aws-sdk';
 
 @Injectable()
 export class MessageHandler {
-  @SqsMessageHandler('hoge', false)
+  @SqsMessageHandler('test-queue', false)
   handleMessage(message: AWS.SQS.Message) {
     console.log(message.Body);
   }

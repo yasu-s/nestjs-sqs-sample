@@ -7,7 +7,7 @@ import { MessageHandler } from './message.handler';
     SqsModule.register({
       consumers: [
         {
-          name: 'hoge',
+          name: 'test-queue',
           queueUrl: 'http://localhost:4566/000000000000/sample-queue',
           region: 'us-east-1',
         },

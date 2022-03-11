@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { SqsModule } from '@ssut/nestjs-sqs';
-import { AppController } from './app.controller';
+import { SqsProducerController } from './sqs-producer.controller';
 
 @Module({
   imports: [
@@ -8,14 +8,14 @@ import { AppController } from './app.controller';
       consumers: [],
       producers: [
         {
-          name: 'hoge',
+          name: 'test-queue',
           queueUrl: 'http://localhost:4566/000000000000/sample-queue',
           region: 'us-east-1',
         },
       ],
     }),
   ],
-  controllers: [AppController],
+  controllers: [SqsProducerController],
   providers: [],
 })
-export class AppModule {}
+export class SqsProducerModule {}

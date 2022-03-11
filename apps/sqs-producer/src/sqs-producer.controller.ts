@@ -2,7 +2,7 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { SqsService } from '@ssut/nestjs-sqs';
 
 @Controller()
-export class AppController {
+export class SqsProducerController {
   constructor(private readonly sqsService: SqsService) {}
 
   @Get()
@@ -10,7 +10,7 @@ export class AppController {
     const msg = message || 'hoge';
     const date = (+new Date()).toString();
 
-    await this.sqsService.send('hoge', {
+    await this.sqsService.send('test-queue', {
       id: date,
       body: { message: msg, date: date },
     });
