@@ -20,8 +20,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:ci": "jest --coverage --ci --runInBand --reporters=default --reporters=jest-junit",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+    "test:ci": "jest --coverage --ci --runInBand --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -87,7 +86,7 @@
     }
   },
   "jest-junit": {
-    "outputDirectory": ".",
+    "outputDirectory": "reports",
     "outputName": "jest-junit.xml",
     "ancestorSeparator": " › ",
     "uniqueOutputName": "false",

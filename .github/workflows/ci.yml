@@ -52,13 +52,13 @@ jobs:
         name: test-results
         path: jest-junit.xml
 
-  report:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - uses: dorny/test-reporter@v1
-      with:
-        artifact: test-results
-        name: JEST Tests
-        path: '*.xml'
-        reporter: jest-junit
+  # report:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: dorny/test-reporter@v1
+  #     with:
+  #       artifact: test-results
+  #       name: JEST Tests
+  #       path: '*.xml'
+  #       reporter: jest-junit

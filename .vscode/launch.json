@@ -16,10 +16,6 @@
       "runtimeArgs": ["start:consumer:debug"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "preLaunchTask": {
-        "task": "",
-        "type": ""
-      }
     },
     {
       "type": "pwa-node",
@@ -31,6 +27,34 @@
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "yarn",
       "runtimeArgs": ["start:producer:debug"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+    },
+    {
+      "name": "Debug Jest Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/.bin/jest",
+        "--testTimeout=300000",
+        "--runInBand"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+    },
+    {
+      "name": "Debug Jest Tests - Current File",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/.bin/jest",
+        "--runInBand",
+        "--testTimeout=300000",
+        "--verbose",
+        "${file}"
+      ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
     }
