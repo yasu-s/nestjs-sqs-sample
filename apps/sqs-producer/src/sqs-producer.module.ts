@@ -1,18 +1,26 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SqsModule } from '@ssut/nestjs-sqs';
 import { SqsProducerController } from './sqs-producer.controller';
 
 @Module({
   imports: [
-    SqsModule.register({
-      consumers: [],
-      producers: [
-        {
-          name: 'test-queue',
-          queueUrl: 'http://localhost:4566/000000000000/sample-queue',
-          region: 'us-east-1',
-        },
-      ],
+    ConfigModule.forRoot({}),
+    SqsModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => {
+        return {
+          consumers: [],
+          producers: [
+            {
+              name: 'test-queue',
+              queueUrl: configService.get<string>('QUEUE_URL'),
+              region: configService.get<string>('REGION'),
+            },
+          ],
+        };
+      },
     }),
   ],
   controllers: [SqsProducerController],
