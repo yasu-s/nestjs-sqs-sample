@@ -88,6 +88,7 @@ module.exports = {
       files: [
         'apps/sqs-consumer/test/**/*.spec.ts',
         'apps/sqs-producer/test/**/*.spec.ts',
+        'libs/commons/test/**/*.spec.ts',
       ],
       plugins: [
         '@typescript-eslint',

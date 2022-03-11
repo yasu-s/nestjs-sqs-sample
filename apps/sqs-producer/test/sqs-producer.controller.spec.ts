@@ -31,7 +31,7 @@ describe('SqsProducerController', () => {
       const date = (+new Date(2021, 0, 1, 1, 1, 1)).toString();
       const message = 'msg';
 
-      // exe
+      // exercise
       const actual = await sqsProducerController.sendQueue(message);
 
       // verify
@@ -44,7 +44,7 @@ describe('SqsProducerController', () => {
       const date = (+new Date(2021, 0, 1, 1, 1, 1)).toString();
       const message = '';
 
-      // exe
+      // exercise
       const actual = await sqsProducerController.sendQueue(message);
 
       // verify
