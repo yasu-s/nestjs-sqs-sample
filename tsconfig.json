@@ -16,14 +16,6 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "paths": {
-      "@app/sqs-commons": [
-        "libs/sqs-commons/src"
-      ],
-      "@app/sqs-commons/*": [
-        "libs/sqs-commons/src/*"
-      ]
-    }
+    "noFallthroughCasesInSwitch": false
   }
 }

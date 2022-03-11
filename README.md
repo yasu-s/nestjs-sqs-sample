@@ -24,19 +24,19 @@
 docker-compose up -d
 
 # SQSのキューを作成
-aws sqs create-queue --endpoint-url http://localhost:4566  --queue-name sample-queue  --profile localstack
+aws sqs create-queue --endpoint-url http://localhost:4566 --queue-name sample-queue --profile localstack
 
 # Node.jsパッケージインストール
 yarn
 
 # SQS受信側起動
-nest start sqs-consumer
+yarn start:consumer
 
 # SQS送信側起動
-nest start
+yarn start:producer
 
 # SQS送信側のエンドポイントを叩く
-curl 'http://localhost:3000/hoge?message=hogeee'
+curl 'http://localhost:3000/?message=hogeee'
 ```
 
 ## 参考URL

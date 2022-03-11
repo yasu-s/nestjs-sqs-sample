@@ -1,0 +1,26 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "yarn-install",
+      "type": "shell",
+      "command": "yarn"
+    },
+    {
+      "label": "yarn-start-produce",
+      "type": "shell",
+      "command": "yarn start:producer:dev",
+      "dependsOn": ["yarn-install"],
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "yarn-start-consumer",
+      "type": "shell",
+      "command": "yarn start:consumer:dev",
+      "dependsOn": ["yarn-install"],
+      "dependsOrder": "sequence"
+    },
+  ]
+}

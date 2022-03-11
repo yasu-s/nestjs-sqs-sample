@@ -1,16 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { SqsMessageHandler, SqsConsumerEventHandler } from '@ssut/nestjs-sqs';
+import { SqsMessageHandler } from '@ssut/nestjs-sqs';
 import * as AWS from 'aws-sdk';
 
 @Injectable()
 export class MessageHandler {
-  @SqsMessageHandler('hoge', false)
+  @SqsMessageHandler('test-queue', false)
   handleMessage(message: AWS.SQS.Message) {
-    console.log(message.Body);
-  }
-
-  @SqsConsumerEventHandler('hoge', 'processing_error')
-  onProcessingError(error: Error, _: AWS.SQS.Message) {
-    console.log(error);
+    const obj = JSON.parse(message.Body) as { message: string; date: string };
+    console.log(obj);
   }
 }

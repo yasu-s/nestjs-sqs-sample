@@ -25,15 +25,6 @@
       "compilerOptions": {
         "tsConfigPath": "apps/sqs-consumer/tsconfig.app.json"
       }
-    },
-    "sqs-commons": {
-      "type": "library",
-      "root": "libs/sqs-commons",
-      "entryFile": "index",
-      "sourceRoot": "libs/sqs-commons/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/sqs-commons/tsconfig.lib.json"
-      }
     }
   }
 }

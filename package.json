@@ -7,18 +7,20 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build",
-    "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "build": "nest build sqs-producer && nest build sqs-consumer",
+    "start:producer": "nest start sqs-producer",
+    "start:producer:dev": "nest start sqs-producer --watch",
+    "start:producer:debug": "nest start sqs-producer --debug --watch",
+    "start:producer:prod": "node dist/apps/sqs-producer/main",
+    "start:consumer": "nest start sqs-consumer",
+    "start:consumer:dev": "nest start sqs-consumer --watch",
+    "start:consumer:debug": "nest start sqs-consumer --debug --watch",
+    "start:consumer:prod": "node dist/apps/sqs-consumer/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/sqs-producer/test/jest-e2e.json"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
