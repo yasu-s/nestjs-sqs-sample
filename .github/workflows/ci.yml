@@ -51,6 +51,11 @@ jobs:
       with:
         name: test-results
         path: reports/jest-junit.xml
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
     - uses: dorny/test-reporter@v1
       with:
         artifact: test-results
