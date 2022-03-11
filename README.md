@@ -24,7 +24,7 @@
 docker-compose up -d
 
 # SQSのキューを作成
-aws sqs create-queue --endpoint-url http://localhost:4566  --queue-name sample-queue  --profile localstack
+aws sqs create-queue --endpoint-url http://localhost:4566 --queue-name sample-queue --profile localstack
 
 # Node.jsパッケージインストール
 yarn
