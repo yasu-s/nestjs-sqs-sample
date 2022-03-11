@@ -6,6 +6,7 @@ import * as AWS from 'aws-sdk';
 export class MessageHandler {
   @SqsMessageHandler('test-queue', false)
   handleMessage(message: AWS.SQS.Message) {
-    console.log(message.Body);
+    const obj = JSON.parse(message.Body) as { message: string; date: string };
+    console.log(obj);
   }
 }
