@@ -20,6 +20,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:ci": "jest --coverage --ci --runInBand",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
@@ -45,6 +46,8 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-jest-formatting": "^3.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.2.5",
     "prettier": "^2.3.2",
@@ -72,6 +75,7 @@
     ],
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
+    "resetMocks": true,
     "roots": [
       "<rootDir>/apps/",
       "<rootDir>/libs/"
