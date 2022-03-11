@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Logger } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SqsModule } from '@ssut/nestjs-sqs';
 import { SqsProducerController } from './sqs-producer.controller';
@@ -10,13 +10,18 @@ import { SqsProducerController } from './sqs-producer.controller';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
+        const queueUrl = configService.get<string>('QUEUE_URL');
+        const region = configService.get<string>('REGION');
+        Logger.log(`QUEUE_URL: ${queueUrl}`, SqsModule.name);
+        Logger.log(`REGION: ${region}`, SqsModule.name);
+
         return {
           consumers: [],
           producers: [
             {
               name: 'test-queue',
-              queueUrl: configService.get<string>('QUEUE_URL'),
-              region: configService.get<string>('REGION'),
+              queueUrl: queueUrl,
+              region: region,
             },
           ],
         };
