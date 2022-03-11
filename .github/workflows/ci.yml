@@ -50,7 +50,7 @@ jobs:
       if: success() || failure()
       with:
         name: test-results
-        path: reports/jest-junit.xml
+        path: jest-junit.xml
 
   report:
     needs: test
