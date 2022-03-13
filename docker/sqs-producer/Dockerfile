@@ -12,5 +12,4 @@ ENV NODE_ENV production
 COPY --from=builder /app/dist ./dist
 COPY ./package*.json ./
 RUN yarn
-EXPOSE 3001
 CMD ["node", "dist/apps/sqs-producer/main.js"]
