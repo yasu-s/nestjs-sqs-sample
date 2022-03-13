@@ -6,8 +6,6 @@ services:
     build:
       context: .
       dockerfile: docker/sqs-consumer/Dockerfile
-    ports:
-      - 3001:3001
     environment:
       - QUEUE_URL=http://localstack:4566/000000000000/sample-queue
       - REGION=us-east-1
