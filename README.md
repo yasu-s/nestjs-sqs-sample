@@ -21,11 +21,8 @@
 ## 動作確認
 
 ```bash
-# SQS起動
+# SQS起動（起動時にSQSにsample-queueを作成します）
 docker-compose up -d
-
-# SQSのキューを作成
-aws sqs create-queue --endpoint-url http://localhost:4566 --queue-name sample-queue --profile localstack
 
 # Node.jsパッケージインストール
 yarn
@@ -42,6 +39,23 @@ yarn start:producer
 # SQS送信側のエンドポイントを叩く
 curl 'http://localhost:3000/?message=hogeee'
 ```
+
+### 動作確認 - Dockerビルド後に実行
+
+```bash
+# SQS起動（起動時にSQSにsample-queueを作成します）
+docker-compose up -d
+
+# sqs-producer/sqs-consumerをDockerイメージにビルド
+docker-compose -f docker-compose.dev.yml build
+
+# sqs-producer/sqs-consumerを起動。
+docker-compose -f docker-compose.dev.yml up
+
+# SQS送信側のエンドポイントを叩く
+curl 'http://localhost:3000/?message=hogeee'
+```
+
 
 ## 参考URL
 

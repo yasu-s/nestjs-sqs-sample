@@ -8,6 +8,8 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build sqs-producer && nest build sqs-consumer",
+    "build:producer": "nest build sqs-producer",
+    "build:consumer": "nest build sqs-consumer",
     "start:producer": "nest start sqs-producer",
     "start:producer:dev": "nest start sqs-producer --watch",
     "start:producer:debug": "nest start sqs-producer --debug --watch",
