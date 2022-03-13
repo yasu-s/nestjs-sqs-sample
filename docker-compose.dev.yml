@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  sqs-consumer:
+    container_name: sqs-consumer
+    build:
+      context: .
+      dockerfile: docker/sqs-consumer/Dockerfile
+    ports:
+      - 3001:3001
+    environment:
+      - QUEUE_URL=http://localstack:4566/000000000000/sample-queue
+      - REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+    networks:
+      - nestjs-sqs-sample_default
+
+  sqs-producer:
+    container_name: sqs-producer
+    build:
+      context: .
+      dockerfile: docker/sqs-producer/Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+      - QUEUE_URL=http://localstack:4566/000000000000/sample-queue
+      - REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+    networks:
+      - nestjs-sqs-sample_default
+
+networks:
+  nestjs-sqs-sample_default:
+    external: true
