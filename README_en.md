@@ -40,7 +40,7 @@ yarn start:producer
 curl 'http://localhost:3000/?message=hogeee'
 ```
 
-### Usage - Dockerビルド後に実行
+### Usage - Run after Docker build 
 
 ```bash
 # Start SQS 
