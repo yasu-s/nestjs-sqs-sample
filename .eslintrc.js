@@ -6,12 +6,15 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
+    'eslint-plugin-tsdoc',
+    'jsdoc',
     'prettier',
     'import',
   ],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:jsdoc/recommended',
     'plugin:import/typescript',
     'prettier'
   ],
@@ -89,7 +92,33 @@ module.exports = {
     'import/newline-after-import': 'error',
     'import/no-default-export': 'error',
     'import/no-duplicates': 'error',
-    'import/no-self-import': 'error'
+    'import/no-self-import': 'error',
+    'tsdoc/syntax': 'warn',
+    'jsdoc/require-jsdoc': [
+      'warn',
+      {
+        'publicOnly': false,
+        'require': {
+          'ArrowFunctionExpression': true,
+          'ClassDeclaration': true,
+          'ClassExpression': true,
+          'FunctionDeclaration': true,
+          'FunctionExpression': true,
+          'MethodDefinition': true
+        },
+        'exemptEmptyFunctions':true,
+        'checkConstructors': true,
+        'checkGetters': true,
+        'checkSetters': true
+      }
+    ],
+    'jsdoc/require-description': [
+      'warn', { 'contexts': ['any'] }
+    ],
+    'jsdoc/require-asterisk-prefix': 1,
+    'jsdoc/newline-after-description': 0,
+    'jsdoc/require-param-type': 0,
+    'jsdoc/require-returns-type': 0
   },
   overrides: [
     {
